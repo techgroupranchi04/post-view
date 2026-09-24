@@ -465,7 +465,7 @@ function createNewPost({ contentHtml, category, author, role }) {
         ${contentHtml}
       </div>
       <div class="read-more-btn-wrap" id="wrap_readmore_${postId}">
-        <button class="btn-read-more" id="btn_readmore_${postId}" onclick="toggleReadMore('content_${postId}', 'btn_readmore_${postId}')">
+        <button class="btn-read-more" id="btn_readmore_${postId}" onclick="toggleReadMore(this)">
           <span>... Read more</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
@@ -540,9 +540,31 @@ function createNewPost({ contentHtml, category, author, role }) {
 /* =========================================================
    4. READ MORE / SHOW LESS COLLAPSIBLE HANDLER
    ========================================================= */
-function toggleReadMore(contentId, btnId) {
-  const contentEl = document.getElementById(contentId);
-  const btnEl = document.getElementById(btnId);
+function toggleReadMore(contentRef, btnId) {
+  let contentEl = null;
+  let btnEl = null;
+
+  // Preferred path for inline handlers: toggleReadMore(this)
+  if (contentRef instanceof HTMLElement) {
+    btnEl = contentRef;
+    const wrapper = btnEl.closest('.post-expandable-wrapper');
+    if (wrapper) {
+      contentEl = wrapper.querySelector('.post-expandable-content');
+    }
+  } else if (typeof contentRef === 'string') {
+    // Backward compatibility for older calls: toggleReadMore(contentId, btnId)
+    contentEl = document.getElementById(contentRef);
+    btnEl = btnId ? document.getElementById(btnId) : null;
+
+    // If button id is missing or duplicated, infer from local wrapper.
+    if (!btnEl && contentEl) {
+      const wrapper = contentEl.closest('.post-expandable-wrapper');
+      if (wrapper) {
+        btnEl = wrapper.querySelector('.btn-read-more');
+      }
+    }
+  }
+
   if (!contentEl || !btnEl) return;
 
   const isCollapsed = contentEl.classList.contains('is-collapsed');
@@ -557,7 +579,10 @@ function toggleReadMore(contentId, btnId) {
     btnEl.innerHTML = `<span>... Read more</span> <i class="fa-solid fa-chevron-down"></i>`;
 
     // Smooth scroll back to top of the post if user was scrolled deep
-    contentEl.closest('.post-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const postCard = contentEl.closest('.post-card');
+    if (postCard) {
+      postCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   }
 }
 
