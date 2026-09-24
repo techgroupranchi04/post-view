@@ -37,7 +37,7 @@
       </div>
 
       <!-- Center: Main Navigation -->
-      <nav class="header-nav" aria-label="Primary Navigation">
+      <nav class="header-nav" id="primaryNav" aria-label="Primary Navigation">
         <a href="#discover" class="nav-item">
           <div class="nav-icon-wrapper">
             <i class="fa-solid fa-calendar-days"></i>
@@ -71,9 +71,34 @@
           </div>
           <span class="nav-label">Home</span>
         </a>
+
+        <div class="mobile-drawer-actions" aria-label="Mobile Utility Actions">
+          <button class="icon-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+            <i class="fa-regular fa-sun sun-icon"></i>
+            <i class="fa-regular fa-moon moon-icon"></i>
+          </button>
+
+          <button class="icon-btn" title="Search" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <button class="icon-btn" title="Messages" aria-label="Messages">
+            <i class="fa-regular fa-comment-dots"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <button class="icon-btn" title="Notifications" aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge-count">3</span>
+          </button>
+
+          <div class="user-avatar-small" title="Your Profile">
+            <span>AK</span>
+          </div>
+        </div>
       </nav>
 
-      <!-- Right: Actions, Search, Profile & Post Now CTA -->
+      <!-- Right: Actions, Search, Profile -->
       <div class="header-right">
         <!-- Utility Icons -->
         <div class="header-actions">
@@ -103,7 +128,8 @@
         </div>
 
         <!-- Mobile Menu Toggle -->
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false"
+          aria-controls="primaryNav">
           <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -305,7 +331,8 @@
 
                 <!-- Embedded Image -->
                 <div style="margin: 0.85rem 0;">
-                  <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80"
+                  <img
+                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80"
                     alt="Poster" />
                 </div>
 
@@ -326,7 +353,8 @@
 
               <!-- Read More / Show Less Button -->
               <div class="read-more-btn-wrap">
-                <button class="btn-read-more" id="btn_readmore_myCustomPostId" onclick="toggleReadMore('content_myCustomPostId', 'btn_readmore_myCustomPostId')">
+                <button class="btn-read-more" id="btn_readmore_myCustomPostId"
+                  onclick="toggleReadMore('content_myCustomPostId', 'btn_readmore_myCustomPostId')">
                   <span>... Read more</span>
                   <i class="fa-solid fa-chevron-down"></i>
                 </button>

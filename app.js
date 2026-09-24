@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initMobileNav();
   initCategoryFilter();
   initPostModals();
   initFestyAI();
@@ -13,27 +14,94 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================
+   0. MOBILE NAVIGATION
+   ========================================================= */
+function initMobileNav() {
+  const appHeader = document.getElementById('appHeader');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const headerNav = document.getElementById('primaryNav');
+  const networkDropdown = document.getElementById('networkDropdown');
+
+  if (!appHeader || !mobileMenuBtn || !headerNav) return;
+
+  const closeMenu = () => {
+    appHeader.classList.remove('mobile-nav-open');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    if (networkDropdown) networkDropdown.classList.remove('mobile-open');
+  };
+
+  const openMenu = () => {
+    appHeader.classList.add('mobile-nav-open');
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  };
+
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = appHeader.classList.contains('mobile-nav-open');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth > 860) return;
+    if (!appHeader.contains(e.target)) closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeMenu();
+  });
+
+  const navLinks = headerNav.querySelectorAll('.nav-item[href], .dropdown-menu a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 860) closeMenu();
+    });
+  });
+
+  if (networkDropdown) {
+    networkDropdown.addEventListener('click', (e) => {
+      if (window.innerWidth > 860) return;
+      if (e.target.closest('.dropdown-menu a')) return;
+
+      e.preventDefault();
+      networkDropdown.classList.toggle('mobile-open');
+    });
+  }
+}
+
+/* =========================================================
    1. THEME TOGGLE (LIGHT / DARK)
    ========================================================= */
 function initTheme() {
-  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
   const savedTheme = localStorage.getItem('fc_theme') || 'light-theme';
-  
+
   document.body.className = savedTheme;
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      if (document.body.classList.contains('light-theme')) {
-        document.body.classList.remove('light-theme');
-        document.body.classList.add('dark-theme');
-        localStorage.setItem('fc_theme', 'dark-theme');
-        showToast('Switched to Dark Mode 🌙');
-      } else {
-        document.body.classList.remove('dark-theme');
-        document.body.classList.add('light-theme');
-        localStorage.setItem('fc_theme', 'light-theme');
-        showToast('Switched to Light Mode ☀️');
-      }
+  if (themeToggleBtns.length) {
+    themeToggleBtns.forEach(themeToggleBtn => {
+      themeToggleBtn.addEventListener('click', () => {
+        if (document.body.classList.contains('light-theme')) {
+          document.body.classList.remove('light-theme');
+          document.body.classList.add('dark-theme');
+          localStorage.setItem('fc_theme', 'dark-theme');
+          showToast('Switched to Dark Mode 🌙');
+        } else {
+          document.body.classList.remove('dark-theme');
+          document.body.classList.add('light-theme');
+          localStorage.setItem('fc_theme', 'light-theme');
+          showToast('Switched to Light Mode ☀️');
+        }
+      });
     });
   }
 }
@@ -63,7 +131,7 @@ function initCategoryFilter() {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      
+
       const category = pill.getAttribute('data-category');
       filterPostsByCategory(category);
     });
@@ -96,12 +164,12 @@ function initPostModals() {
   const inlineImgBtn = document.getElementById('inlineImgBtn');
   const inlineVideoBtn = document.getElementById('inlineVideoBtn');
   const inlineEventBtn = document.getElementById('inlineEventBtn');
-  
+
   const postModal = document.getElementById('postModal');
   const closePostModalBtn = document.getElementById('closePostModalBtn');
   const cancelPostBtn = document.getElementById('cancelPostBtn');
   const publishPostBtn = document.getElementById('publishPostBtn');
-  
+
   const editor = document.getElementById('richTextEditor');
   const formatSelect = document.getElementById('formatBlockSelect');
   const toolbar = document.getElementById('editorToolbar');
@@ -487,7 +555,7 @@ function toggleReadMore(contentId, btnId) {
     contentEl.classList.add('is-collapsed');
     btnEl.classList.remove('is-expanded');
     btnEl.innerHTML = `<span>... Read more</span> <i class="fa-solid fa-chevron-down"></i>`;
-    
+
     // Smooth scroll back to top of the post if user was scrolled deep
     contentEl.closest('.post-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
