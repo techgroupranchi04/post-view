@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freecomers - Film Festivals, Community & Network</title>
+  <meta name="description"
+    content="Connect with filmmakers, discover film festivals, share updates and explore the Indian film festival calendar on Freecomers.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="light-theme">
+
+  <!-- TOP HEADER -->
+  <header class="app-header" id="appHeader">
+    <div class="header-container">
+
+      <!-- Left: Brand Logo -->
+      <div class="header-left">
+        <a href="#" class="brand-logo" id="logoBtn" aria-label="Freecomers Home">
+          <span class="logo-text">freecomers</span>
+          <span class="logo-badge">BETA</span>
+        </a>
+      </div>
+
+      <!-- Center: Main Navigation -->
+      <nav class="header-nav" aria-label="Primary Navigation">
+        <a href="#discover" class="nav-item">
+          <div class="nav-icon-wrapper">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <span class="nav-label">Discover Festivals</span>
+        </a>
+
+        <div class="nav-item nav-dropdown" id="networkDropdown">
+          <div class="nav-icon-wrapper">
+            <i class="fa-solid fa-user-group"></i>
+          </div>
+          <span class="nav-label">Network <i class="fa-solid fa-chevron-down dropdown-arrow"></i></span>
+          <div class="dropdown-menu">
+            <a href="#filmmakers"><i class="fa-solid fa-video"></i> Filmmakers</a>
+            <a href="#producers"><i class="fa-solid fa-clapperboard"></i> Producers</a>
+            <a href="#crew"><i class="fa-solid fa-users-gear"></i> Crew & Technicians</a>
+            <a href="#mentors"><i class="fa-solid fa-chalkboard-user"></i> Mentors</a>
+          </div>
+        </div>
+
+        <a href="#filmy-friday" class="nav-item">
+          <div class="nav-icon-wrapper">
+            <i class="fa-solid fa-ticket"></i>
+          </div>
+          <span class="nav-label">Filmy Friday</span>
+        </a>
+
+        <a href="#home" class="nav-item active">
+          <div class="nav-icon-wrapper">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <span class="nav-label">Home</span>
+        </a>
+      </nav>
+
+      <!-- Right: Actions, Search, Profile & Post Now CTA -->
+      <div class="header-right">
+        <!-- Utility Icons -->
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
+            <i class="fa-regular fa-sun sun-icon"></i>
+            <i class="fa-regular fa-moon moon-icon"></i>
+          </button>
+
+          <button class="icon-btn" id="searchBtn" title="Search" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <button class="icon-btn" id="messagesBtn" title="Messages" aria-label="Messages">
+            <i class="fa-regular fa-comment-dots"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <button class="icon-btn" id="notificationsBtn" title="Notifications" aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge-count">3</span>
+          </button>
+
+          <!-- Profile Badge -->
+          <div class="user-avatar-small" id="headerProfileAvatar" title="Your Profile">
+            <span>AK</span>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PAGE CONTAINER (3-Column Layout) -->
+  <main class="main-wrapper">
+    <div class="layout-grid">
+
+      <!-- ================= LEFT COLUMN: Profile Glimpse ================= -->
+      <aside class="col-left" id="leftSidebar">
+
+        <!-- Profile Glimpse Card -->
+        <div class="card profile-glimpse-card">
+          <div class="profile-card-header">
+            <button class="profile-edit-btn" id="editProfileBtn" title="Edit Profile" aria-label="Edit Profile">
+              <i class="fa-solid fa-pencil"></i>
+            </button>
+
+            <div class="profile-avatar-circle-wrapper">
+              <svg class="progress-ring" width="100" height="100" viewBox="0 0 100 100">
+                <circle class="progress-ring-bg" cx="50" cy="50" r="42" />
+                <circle class="progress-ring-fill" cx="50" cy="50" r="42" stroke-dasharray="263.89"
+                  stroke-dashoffset="23.75" />
+              </svg>
+              <div class="profile-avatar-inner">
+                <span class="avatar-text">AK</span>
+              </div>
+              <span class="avatar-percentage-badge">91%</span>
+            </div>
+
+            <a href="#profile" class="view-profile-link" id="viewProfileLink">View Profile</a>
+          </div>
+
+          <div class="profile-card-body">
+            <h2 class="profile-name">Abhishek Kumar</h2>
+            <p class="profile-pronouns">Aspiring Filmmaker &bull; He/Him</p>
+            <div class="profile-status-pill">
+              <span>Learner</span>
+            </div>
+            <p class="profile-bio">&ldquo;I am here to learn from experts.&rdquo;</p>
+          </div>
+
+          <div class="profile-quick-stats">
+            <div class="stat-item">
+              <span class="stat-val">248</span>
+              <span class="stat-lbl">Connections</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">19</span>
+              <span class="stat-lbl">Projects</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">14</span>
+              <span class="stat-lbl">Saved</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Connect Card -->
+        <div class="card whatsapp-card">
+          <div class="whatsapp-card-top">
+            <div class="whatsapp-icon-bubble">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="whatsapp-info">
+              <h3 class="whatsapp-title">Connect us on WhatsApp</h3>
+              <p class="whatsapp-subtitle">For regular updates</p>
+            </div>
+          </div>
+          <button class="btn btn-outline-danger btn-block join-whatsapp-btn" id="joinWhatsappBtn">
+            Join Now
+          </button>
+        </div>
+
+        <!-- Mini Footer / Legal Links -->
+        <div class="left-col-footer">
+          <div class="footer-links">
+            <a href="#">About</a> &bull;
+            <a href="#">Help Center</a> &bull;
+            <a href="#">Privacy & Terms</a> &bull;
+            <a href="#">Festival Guidelines</a>
+          </div>
+          <p class="copyright-text">&copy; 2026 Freecomers Media Inc.</p>
+        </div>
+
+      </aside>
+
+
+      <!-- ================= CENTER COLUMN: Post Preview & Feed ================= -->
+      <section class="col-center" id="mainFeedSection">
+
+        <!-- Category Pill Filter Carousel Bar -->
+        <div class="categories-bar-wrapper">
+          <button class="pill-nav-btn prev-btn" id="pillPrevBtn" aria-label="Scroll Categories Left">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="categories-scroll-track" id="categoriesTrack">
+            <button class="cat-pill active" data-category="all">All</button>
+            <button class="cat-pill" data-category="film-recommendation">Film Recommendation</button>
+            <button class="cat-pill" data-category="event-screening">Event/Screening</button>
+            <button class="cat-pill" data-category="news">News</button>
+            <button class="cat-pill" data-category="seek-mentorship">Seek Mentorship</button>
+            <button class="cat-pill" data-category="festivals">Festival Deadlines</button>
+            <button class="cat-pill" data-category="grants">Grants & Labs</button>
+          </div>
+
+          <button class="pill-nav-btn next-btn" id="pillNextBtn" aria-label="Scroll Categories Right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Quick Create Post Bar (Inline Trigger) -->
+        <div class="card inline-create-post">
+          <div class="inline-avatar">
+            <span>AK</span>
+          </div>
+          <button class="inline-create-input" id="inlinePostInput">
+            <span>Share a festival update, call for crew, or recommendation...</span>
+          </button>
+          <div class="inline-actions">
+            <button class="inline-action-btn" title="Add Image" id="inlineImgBtn"><i
+                class="fa-regular fa-image"></i></button>
+            <button class="inline-action-btn" title="Add Video" id="inlineVideoBtn"><i
+                class="fa-solid fa-film"></i></button>
+            <button class="inline-action-btn" title="Add Event" id="inlineEventBtn"><i
+                class="fa-regular fa-calendar-check"></i></button>
+          </div>
+        </div>
+
+        <!-- Posts Container -->
+        <div class="posts-container" id="postsContainer">
+
+          <!-- HARDCODED RICH TEXT POST -->
+          <article class="card post-card" id="myCustomPostId" data-category="film-recommendation">
+
+            <!-- 1. Post Header -->
+            <div class="post-author-header">
+              <div class="author-left">
+                <div class="author-logo-avatar" style="background: linear-gradient(135deg, #4F46E5, #7C3AED);">
+                  <span style="font-weight: 700; font-size: 0.9rem; color: #FFFFFF;">KM</span>
+                </div>
+                <div class="author-details">
+                  <h4 class="author-name">
+                    <strong>Author Name</strong>
+                    <span class="author-action-tag">&mdash; shared a <strong>Film Recommendation</strong></span>
+                  </h4>
+                  <p class="post-meta">
+                    <span>Filmmaker</span> &bull; <i class="fa-solid fa-globe meta-icon"></i> <span>2h ago</span>
+                  </p>
+                </div>
+              </div>
+              <div class="post-options">
+                <button class="icon-btn-minimal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+              </div>
+            </div>
+
+            <!-- 2. Hashtags -->
+            <div class="post-tags">
+              <a href="#IndieCinema" class="tag-link">#IndieCinema</a>
+              <a href="#ShortFilm" class="tag-link">#ShortFilm</a>
+            </div>
+
+            <!-- 3. Rich Formatted Content with Read More -->
+            <div class="post-expandable-wrapper">
+              <div class="post-rich-content post-expandable-content is-collapsed" id="content_myCustomPostId"
+                style="padding: 0.5rem 1.25rem 0.25rem; font-size: 0.95rem; color: var(--text-primary); line-height: 1.6;">
+
+                <!-- Paragraph -->
+                <p style="font-style: italic;">Lorem Ipsum is simply dummy text of the
+                  printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since 1966.</p>
+
+                <!-- Heading -->
+                <h3>Official Teaser: "RICK ASTLEY - THE MOVIE"</h3>
+
+                <!-- Paragraph -->
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the
+                  librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to
+                  make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the
+                  leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these
+                  sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word
+                  including versions of Lorem Ipsum.</p>
+
+                <!-- Blockquote -->
+                <blockquote>&ldquo;A poignant exploration of indie cinema.&rdquo;</blockquote>
+
+                <!-- Bullet list -->
+                <ul>
+                  <li><strong>Camera:</strong> Arri Alexa Mini LF</li>
+                  <li><strong>Premiere:</strong> DIFF Dharamshala 2026</li>
+                </ul>
+
+                <!-- Embedded Image -->
+                <div style="margin: 0.85rem 0;">
+                  <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80"
+                    alt="Poster" />
+                </div>
+
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the
+                  librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to
+                  make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the
+                  leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these
+                  sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word
+                  including versions of Lorem Ipsum.</p>
+
+                <!-- Embedded Video (YouTube / Vimeo / MP4) -->
+                <div class="rich-video-embed">
+                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+
+              </div>
+
+              <!-- Read More / Show Less Button -->
+              <div class="read-more-btn-wrap">
+                <button class="btn-read-more" id="btn_readmore_myCustomPostId" onclick="toggleReadMore('content_myCustomPostId', 'btn_readmore_myCustomPostId')">
+                  <span>... Read more</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- 4. Engagement Counters -->
+            <div class="post-stats-row">
+              <div class="stats-left">
+                <span class="reaction-icons">
+                  <span class="reaction-like"><i class="fa-solid fa-heart"></i></span>
+                </span>
+                <span class="likes-counter" id="likesCounter_myCustomPostId">86 Likes</span>
+              </div>
+              <div class="stats-right">
+                <span class="comments-counter" id="commentsCounter_myCustomPostId">7 Comments</span> &bull;
+                <span class="shares-counter">12 Shares</span>
+              </div>
+            </div>
+
+            <div class="post-divider"></div>
+
+            <!-- 5. Bottom Engagement Bar -->
+            <div class="post-bottom-actions">
+              <button class="action-btn like-trigger" id="likeBtn_myCustomPostId"
+                onclick="toggleLike('myCustomPostId')">
+                <i class="fa-regular fa-thumbs-up like-icon"></i>
+                <span class="like-label">Like</span>
+              </button>
+
+              <button class="action-btn comment-trigger" onclick="toggleComments('myCustomPostId')">
+                <i class="fa-regular fa-comment"></i>
+                <span>Comment</span>
+              </button>
+
+              <button class="action-btn share-trigger" onclick="sharePost('Post Title')">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                <span>Share</span>
+              </button>
+            </div>
+
+            <!-- 6. Comments Section -->
+            <div class="comments-section" id="comments_myCustomPostId" style="display: none;">
+              <div class="comment-input-row">
+                <div class="comment-user-avatar">AK</div>
+                <div class="comment-input-box">
+                  <input type="text" placeholder="Write a comment..." id="input_comment_myCustomPostId"
+                    onkeydown="handleCommentKey(event, 'myCustomPostId')">
+                  <button class="comment-send-btn" onclick="addComment('myCustomPostId')"><i
+                      class="fa-solid fa-paper-plane"></i></button>
+                </div>
+              </div>
+              <div class="comment-list" id="commentList_myCustomPostId"></div>
+            </div>
+
+          </article>
+          <br />
+          <!-- POST -->
+          <article class="card post-card" id="featuredPost">
+
+            <!-- Post Header -->
+            <div class="post-author-header">
+              <div class="author-left">
+                <div class="author-logo-avatar">
+                  <div class="author-logo-icon">
+                    <span>F</span><span>T</span>
+                  </div>
+                </div>
+                <div class="author-details">
+                  <h4 class="author-name">
+                    <strong>Freecomers News and Events</strong>
+                    <span class="author-action-tag">&mdash; is sharing <strong>Film Festivals</strong></span>
+                  </h4>
+                  <p class="post-meta">
+                    <span>Film Enthusiast</span> &bull; <i class="fa-solid fa-globe meta-icon"></i> <span>32m ago</span>
+                  </p>
+                </div>
+              </div>
+              <div class="post-options">
+                <button class="icon-btn-minimal" aria-label="More options">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Hashtags -->
+            <div class="post-tags">
+              <a href="#FilmFestivals" class="tag-link">#FilmFestivals</a>
+              <a href="#newsandevents" class="tag-link">#newsandevents</a>
+              <a href="#indiancinema" class="tag-link">#indiancinema</a>
+              <a href="#october2026" class="tag-link">#october2026</a>
+            </div>
+
+            <!-- Plain Text Post Content -->
+            <div class="post-text-content"
+              style="padding: 0.5rem 1.25rem 1rem; font-size: 0.95rem; color: var(--text-primary); line-height: 1.6;">
+              <p style="margin-bottom: 0.75rem;">
+                Excited to share the upcoming key Indian Film Festival dates for this season! Here are the major
+                highlights for independent filmmakers, screenwriters, and cinema enthusiasts across India:
+              </p>
+              <p style="margin-bottom: 0.75rem;">
+                🎬 <strong>Dehradun International Film Festival (DIFF)</strong> &mdash; Oct 2 &ndash; 4, 2026
+                (Dehradun)<br>
+                🎥 <strong>IFP Festival (Season 16)</strong> &mdash; Oct 24, 2026 (Mumbai)<br>
+                🏔️ <strong>Dharamshala International Film Festival (DIFF)</strong> &mdash; Oct 29 &ndash; Nov 1, 2026
+                (McLeod Ganj)
+              </p>
+              <p>
+                Make sure to check submission deadlines, delegate registration passes, and mentorship labs early.
+                Connect with fellow filmmakers attending these festivals in the comments below!
+              </p>
+            </div>
+
+            <!-- Post Engagement Stats -->
+            <div class="post-stats-row">
+              <div class="stats-left">
+                <span class="reaction-icons">
+                  <span class="reaction-like"><i class="fa-solid fa-heart"></i></span>
+                  <span class="reaction-clap"><i class="fa-solid fa-thumbs-up"></i></span>
+                </span>
+                <span class="likes-counter" id="likesCounter_featuredPost">142 Likes</span>
+              </div>
+              <div class="stats-right">
+                <span class="comments-counter" id="commentsCounter_featuredPost">18 Comments</span>
+                &bull;
+                <span class="shares-counter">2 Shares</span>
+              </div>
+            </div>
+
+            <div class="post-divider"></div>
+
+            <!-- Bottom Interaction Bar -->
+            <div class="post-bottom-actions">
+              <button class="action-btn like-trigger" id="likeBtn_featuredPost" onclick="toggleLike('featuredPost')">
+                <i class="fa-regular fa-thumbs-up like-icon"></i>
+                <span class="like-label">Like</span>
+              </button>
+
+              <button class="action-btn comment-trigger" onclick="toggleComments('featuredPost')">
+                <i class="fa-regular fa-comment"></i>
+                <span>Comment</span>
+              </button>
+
+              <button class="action-btn share-trigger"
+                onclick="sharePost('Indian Film Festival Calendar: October 2026')">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                <span>Share</span>
+              </button>
+            </div>
+
+            <!-- Expandable Comments Section -->
+            <div class="comments-section" id="comments_featuredPost" style="display: none;">
+
+              <!-- Input box -->
+              <div class="comment-input-row">
+                <div class="comment-user-avatar">AK</div>
+                <div class="comment-input-box">
+                  <input type="text" placeholder="Write a comment or tag festival collaborators..."
+                    id="input_comment_featuredPost" onkeydown="handleCommentKey(event, 'featuredPost')">
+                  <button class="comment-send-btn" onclick="addComment('featuredPost')">
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Comment List -->
+              <div class="comment-list" id="commentList_featuredPost">
+                <div class="comment-item">
+                  <div class="comment-avatar">RS</div>
+                  <div class="comment-bubble">
+                    <div class="comment-header">
+                      <strong>Rahul Sharma</strong>
+                      <span>15m ago</span>
+                    </div>
+                    <p>Marked my dates for DIFF Dharamshala! Best indie community vibe in the Himalayas.</p>
+                  </div>
+                </div>
+
+                <div class="comment-item">
+                  <div class="comment-avatar">PM</div>
+                  <div class="comment-bubble">
+                    <div class="comment-header">
+                      <strong>Pooja Menon</strong>
+                      <span>22m ago</span>
+                    </div>
+                    <p>Is anyone submitting short fiction to IFP 50-hour filmmaking challenge this season?</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= RIGHT COLUMN: Show Sponsor Ads & AI Assistant ================= -->
+      <aside class="col-right" id="rightSidebar">
+
+        <!-- SPONSOR CARD 1: AI FILM FESTIVAL STRATEGIST -->
+        <div class="card sponsor-card-ai" id="aiStrategistCard">
+          <div class="sponsor-ai-glow"></div>
+
+          <div class="sponsor-badge-top">
+            <span class="ai-pill-tag">AI FILM FESTIVAL STRATEGIST</span>
+          </div>
+
+          <h3 class="sponsor-ai-title">FIND THE RIGHT FESTIVAL FOR YOUR FILM.</h3>
+
+          <p class="sponsor-ai-desc">
+            Get AI-powered festival research and recommendations based on your film, genre, goals, and eligibility.
+          </p>
+
+          <button class="btn btn-ask-festy" id="askFestyBtn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Ask Festy</span>
+          </button>
+        </div>
+
+        <!-- SPONSOR CARD 2: FEATURED FESTIVAL PASSES / WORKSHOPS -->
+        <div class="card sponsor-ad-card">
+          <div class="ad-header">
+            <span class="ad-label">SPONSORED</span>
+            <button class="ad-info-btn" title="Ad Info"><i class="fa-solid fa-circle-info"></i></button>
+          </div>
+          <div class="ad-media-preview">
+            <div class="ad-media-overlay">
+              <span class="ad-tag">Masterclass 2026</span>
+              <h4>Directing for Global Audiences</h4>
+              <p>With Academy-selected mentors</p>
+            </div>
+          </div>
+          <div class="ad-body">
+            <p class="ad-text">Get 30% Early Bird discount for Freecomers community members with code
+              <strong>FREEINDIE30</strong>.
+            </p>
+            <button class="btn btn-ad-cta" id="claimOfferBtn">
+              <span>Claim Pass</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Trending Festivals Mini Widget -->
+        <div class="card trending-festivals-card">
+          <div class="card-heading-row">
+            <h4><i class="fa-solid fa-fire text-danger"></i> Trending Submissions</h4>
+            <a href="#" class="view-all-link">See all</a>
+          </div>
+
+          <ul class="trending-list">
+            <li class="trending-item">
+              <div class="trend-icon"><i class="fa-solid fa-film"></i></div>
+              <div class="trend-info">
+                <h6>DIFF 2026 Regular Deadline</h6>
+                <span>Ends in 6 days &bull; Dharamshala</span>
+              </div>
+              <button class="trend-action-btn"><i class="fa-regular fa-bookmark"></i></button>
+            </li>
+
+            <li class="trending-item">
+              <div class="trend-icon"><i class="fa-solid fa-clapperboard"></i></div>
+              <div class="trend-info">
+                <h6>Mumbai Int'l Shorts Gala</h6>
+                <span>Call for entries &bull; Shorts & Docs</span>
+              </div>
+              <button class="trend-action-btn"><i class="fa-regular fa-bookmark"></i></button>
+            </li>
+
+            <li class="trending-item">
+              <div class="trend-icon"><i class="fa-solid fa-award"></i></div>
+              <div class="trend-info">
+                <h6>Kolkata Indie Vision Award</h6>
+                <span>Early bird submission open</span>
+              </div>
+              <button class="trend-action-btn"><i class="fa-regular fa-bookmark"></i></button>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ================= MODALS & POPUPS ================= -->
+
+  <!-- 1. POST NOW MODAL -->
+  <div class="modal-backdrop" id="postModal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h3 class="modal-title"> Create New Post</h3>
+          <button class="modal-close-btn" id="closePostModalBtn">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-user-row">
+            <div class="modal-avatar">AK</div>
+            <div class="modal-user-meta">
+              <h5>Abhishek Kumar</h5>
+              <select class="post-audience-select" id="postAudience">
+                <option value="public">&#127758; Anyone (Public)</option>
+                <option value="connections">&#128101; Connections Only</option>
+                <option value="filmmakers">&#127916; Filmmakers Only</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <select class="form-select mb-2" id="postCategorySelect">
+              <option value="film-recommendation">Category: Film Recommendation</option>
+              <option value="event-screening">Category: Event / Screening</option>
+              <option value="news" selected>Category: News & Festival Update</option>
+              <option value="seek-mentorship">Category: Seek Mentorship</option>
+              <option value="festivals">Category: Festival Deadlines</option>
+            </select>
+          </div>
+
+          <!-- Rich Text Editor Container -->
+          <div class="rich-editor-wrapper">
+
+            <!-- Editor Toolbar -->
+            <div class="rich-toolbar" id="editorToolbar">
+              <!-- Text Style Select -->
+              <div class="toolbar-group">
+                <select class="toolbar-select" id="formatBlockSelect" title="Text Style">
+                  <option value="p">Paragraph</option>
+                  <option value="h3">Heading 1</option>
+                  <option value="h4">Heading 2</option>
+                  <option value="blockquote">Quote</option>
+                </select>
+              </div>
+
+              <div class="toolbar-divider"></div>
+
+              <!-- Basic Formatting -->
+              <div class="toolbar-group">
+                <button type="button" class="toolbar-btn" data-command="bold" title="Bold (Ctrl+B)"><i
+                    class="fa-solid fa-bold"></i></button>
+                <button type="button" class="toolbar-btn" data-command="italic" title="Italic (Ctrl+I)"><i
+                    class="fa-solid fa-italic"></i></button>
+                <button type="button" class="toolbar-btn" data-command="underline" title="Underline (Ctrl+U)"><i
+                    class="fa-solid fa-underline"></i></button>
+                <button type="button" class="toolbar-btn" data-command="strikeThrough" title="Strikethrough"><i
+                    class="fa-solid fa-strikethrough"></i></button>
+              </div>
+
+              <div class="toolbar-divider"></div>
+
+              <!-- Lists & Alignment -->
+              <div class="toolbar-group">
+                <button type="button" class="toolbar-btn" data-command="insertUnorderedList" title="Bullet List"><i
+                    class="fa-solid fa-list-ul"></i></button>
+                <button type="button" class="toolbar-btn" data-command="insertOrderedList" title="Numbered List"><i
+                    class="fa-solid fa-list-ol"></i></button>
+                <button type="button" class="toolbar-btn" data-command="justifyLeft" title="Align Left"><i
+                    class="fa-solid fa-align-left"></i></button>
+                <button type="button" class="toolbar-btn" data-command="justifyCenter" title="Align Center"><i
+                    class="fa-solid fa-align-center"></i></button>
+              </div>
+
+              <div class="toolbar-divider"></div>
+
+              <!-- Media & Embeds -->
+              <div class="toolbar-group">
+                <button type="button" class="toolbar-btn highlight-btn" id="toolbarImageUploadBtn"
+                  title="Upload Image / Poster">
+                  <i class="fa-regular fa-image"></i>
+                  <span class="btn-text">Image</span>
+                </button>
+                <button type="button" class="toolbar-btn highlight-btn" id="toolbarImageUrlBtn"
+                  title="Insert Image by URL">
+                  <i class="fa-solid fa-globe"></i>
+                  <span class="btn-text">Image URL</span>
+                </button>
+                <button type="button" class="toolbar-btn highlight-btn" id="toolbarVideoEmbedBtn"
+                  title="Embed Video (YouTube, Vimeo, MP4)">
+                  <i class="fa-solid fa-video"></i>
+                  <span class="btn-text">Video</span>
+                </button>
+                <button type="button" class="toolbar-btn" id="toolbarLinkBtn" title="Insert Link"><i
+                    class="fa-solid fa-link"></i></button>
+                <button type="button" class="toolbar-btn" data-command="removeFormat" title="Clear Formatting"><i
+                    class="fa-solid fa-eraser"></i></button>
+              </div>
+            </div>
+
+            <!-- Hidden File Input for Image Upload -->
+            <input type="file" id="richImageFileInput" accept="image/*" style="display: none;">
+
+            <!-- Content Editable Editor Area -->
+            <div id="richTextEditor" class="rich-editor-content" contenteditable="true"
+              placeholder="What do you want to talk about? Share your festival news, project milestones, poster, or trailer video..."
+              role="textbox" aria-multiline="true"></div>
+
+            <!-- Editor Footer with Quick Emojis & Stats -->
+            <div class="rich-editor-footer">
+              <div class="editor-quick-emojis">
+                <span class="emojis-label">Quick:</span>
+                <button type="button" class="emoji-chip" onclick="insertEmoji('🎬')">🎬</button>
+                <button type="button" class="emoji-chip" onclick="insertEmoji('🎥')">🎥</button>
+                <button type="button" class="emoji-chip" onclick="insertEmoji('🍿')">🍿</button>
+                <button type="button" class="emoji-chip" onclick="insertEmoji('🏆')">🏆</button>
+                <button type="button" class="emoji-chip" onclick="insertEmoji('✨')">✨</button>
+                <button type="button" class="emoji-chip" onclick="insertEmoji('📽️')">📽️</button>
+                <button type="button" class="emoji-chip" onclick="insertEmoji('🎟️')">🎟️</button>
+              </div>
+              <div class="editor-char-counter" id="editorCharCount">0 words</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="cancelPostBtn">Cancel</button>
+          <button class="btn btn-danger-primary" id="publishPostBtn">Publish Post</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. ASK FESTY AI STRATEGIST MODAL -->
+  <div class="modal-backdrop" id="festyModal" style="display: none;">
+    <div class="modal-dialog festy-modal-dialog">
+      <div class="modal-content festy-modal-content">
+
+        <div class="modal-header festy-modal-header">
+          <div class="festy-title-group">
+            <div class="festy-sparkle-icon">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <h3 class="modal-title text-white">Ask Festy &mdash; AI Festival Strategist</h3>
+              <p class="text-white-50">Match your project with ideal Indian & Global festivals</p>
+            </div>
+          </div>
+          <button class="modal-close-btn text-white" id="closeFestyModalBtn">&times;</button>
+        </div>
+
+        <div class="modal-body festy-modal-body">
+          <div class="festy-chat-container" id="festyChatContainer">
+            <div class="festy-message assistant">
+              <div class="festy-msg-bubble">
+                <strong>Festy AI:</strong> Hello Abhishek! 🎬 Tell me about your film (Genre, Runtime, Premiere Status,
+                and Target Region), and I will generate your custom 2026 Festival Strategy Roadmap!
+              </div>
+            </div>
+          </div>
+
+          <div class="festy-quick-prompts">
+            <button class="prompt-chip"
+              onclick="sendFestyPrompt('I have a 18-min Hindi Short Drama seeking Indian Premiere')">18-min Short Drama
+              (Hindi)</button>
+            <button class="prompt-chip"
+              onclick="sendFestyPrompt('Looking for documentary grants and lab deadlines in Oct-Dec 2026')">Doc Labs &
+              Grants 2026</button>
+            <button class="prompt-chip"
+              onclick="sendFestyPrompt('Which festivals accept student film debut submissions?')">Student Debut
+              Submissions</button>
+          </div>
+
+          <div class="festy-input-row">
+            <input type="text" id="festyInput" placeholder="Describe your film or ask festival questions..."
+              onkeydown="handleFestyKey(event)">
+            <button class="btn btn-ask-festy-send" id="sendFestyBtn" onclick="sendFestyMessage()">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+
+</html>
